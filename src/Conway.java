@@ -10,12 +10,15 @@ public class Conway {
 //                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
 //                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
 //                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0}};
-        int[][] field = {{1, 0, 0},
-                        {0, 0, 0},
-                        {1, 0, 1}};
+
+        int[][] field = {{1, 1, 0},
+                        {0, 1, 0},
+                        {0, 0, 0}};
 
         printGeneration(field);
         System.out.printf("Lebende Nachbarzellen: %d \n", countLivingNeighbors(field, 0,  1));
+
+        printGeneration(calculateNextGeneration(field));
     }
 
     public static void printGeneration(int[][] field){
@@ -45,6 +48,38 @@ public class Conway {
         }
 
         return count;
+    }
 
+    public static int[][] calculateNextGeneration(int[][] field){
+        int[][] newField = copy2dArray(field);
+
+        for (int i = 0; i < field.length; i++) {
+            System.out.println();
+            for (int j = 0; j < field[i].length; j++) {
+                if (field[i][j] >= 1 && countLivingNeighbors(field, i, j) < 2){
+                    newField[i][j] = 0;
+                }
+                if(field[i][j] >= 1 && countLivingNeighbors(field, i, j) > 3){
+                    newField[i][j] = 0;
+                }
+                if(field[i][j] < 1 && countLivingNeighbors(field, i, j) == 3){
+                    newField[i][j] = 1;
+                }
+            }
+        }
+        return newField;
+    }
+
+    public static int[][] copy2dArray(int[][] array){
+        int[][] newArray = new int[array.length][];
+
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = new int[array[i].length];
+            for (int j = 0; j < array[i].length; j++) {
+                newArray[i][j] = array[i][j];
+            }
+        }
+
+        return newArray;
     }
 }
