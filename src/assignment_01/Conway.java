@@ -1,3 +1,5 @@
+package assignment_01;
+
 public class Conway {
     public static void main(String[] args){
         int[][] field = {{0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
