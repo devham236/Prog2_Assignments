@@ -1,24 +1,21 @@
 public class Conway {
     public static void main(String[] args){
-//        int[][] field = {{0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
-//                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0}};
+        int[][] field = {{0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 1, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 1, 0, 0, 0, 0, 0 ,0},
+                        {0, 1, 1, 1, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0}};
 
-        int[][] field = {{1, 1, 0},
-                        {0, 1, 0},
-                        {0, 0, 0}};
-
-        printGeneration(field);
-        System.out.printf("Lebende Nachbarzellen: %d \n", countLivingNeighbors(field, 0,  1));
-
-        printGeneration(calculateNextGeneration(field));
+        for (int i = 0; i < 10; i++) {
+            System.out.printf("\nGeneration %d", i);
+            printGeneration(field);
+            field = calculateNextGeneration(field);
+        }
     }
 
     public static void printGeneration(int[][] field){
@@ -31,8 +28,6 @@ public class Conway {
     }
 
     public static int countLivingNeighbors(int[][] field, int x, int y){
-        System.out.println();
-
         int count = 0;
 
         for (int i = x-1; i <= x+1; i++) {
