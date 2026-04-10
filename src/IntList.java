@@ -11,4 +11,10 @@ public class IntList {
         }
         return count;
     }
+
+    public static int[] intToList(int value){
+        int[] list = new int[countNumbers(value)];
+
+        return list;
+    }
 }
