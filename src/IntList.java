@@ -1,10 +1,10 @@
 public class IntList {
     public static void main(String[] args){
-        int[] test = intToList(12345667);
-
+        int[] test = intToList(999);
         for (int i = 0; i < test.length; i++) {
             System.out.printf("%d ", test[i]);
         }
+        addOne(test);
     }
 
     public static int countNumbers(int num){
@@ -30,5 +30,22 @@ public class IntList {
             list[i] = digit;
         }
         return list;
+    }
+
+    public static int listToInt(int[] numbers){
+        String str = "";
+        for (int i = 0; i < numbers.length; i++) {
+            str += Integer.toString(numbers[i]);
+        }
+        return Integer.parseInt(str);
+    }
+
+    public static int[] addOne(int[] numbers){
+        int num = listToInt(numbers);
+        int[] numArray = intToList(num+1);
+        for (int i = 0; i < numArray.length; i++) {
+            System.out.printf("%d ", numArray[i]);
+        }
+        return numArray;
     }
 }
