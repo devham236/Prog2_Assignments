@@ -1,10 +1,8 @@
 public class IntList {
     public static void main(String[] args){
         int[] test = intToList(999);
-        for (int i = 0; i < test.length; i++) {
-            System.out.printf("%d ", test[i]);
-        }
-        addOne(test);
+        int testNum = listToInt(addOne(test));
+        System.out.println(testNum);
     }
 
     public static int countNumbers(int num){
@@ -43,9 +41,6 @@ public class IntList {
     public static int[] addOne(int[] numbers){
         int num = listToInt(numbers);
         int[] numArray = intToList(num+1);
-        for (int i = 0; i < numArray.length; i++) {
-            System.out.printf("%d ", numArray[i]);
-        }
         return numArray;
     }
 }
