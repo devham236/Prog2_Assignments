@@ -41,7 +41,6 @@ public class Conway {
                 }
             }
         }
-
         return count;
     }
 
@@ -74,7 +73,6 @@ public class Conway {
                 newArray[i][j] = array[i][j];
             }
         }
-
         return newArray;
     }
 }
