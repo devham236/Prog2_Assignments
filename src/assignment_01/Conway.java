@@ -13,7 +13,7 @@ public class Conway {
                         {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0 ,0}};
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             System.out.printf("\nGeneration %d", i);
             printGeneration(field);
             field = calculateNextGeneration(field);
