@@ -3,17 +3,17 @@ package assignment_02.aufgabe3.data;
 import java.lang.Math;
 
 // This class is representing a cartesian coordinate in a 2d space with double coordinates.
-class DebugData {
+public class DebugData {
     private double x;
     private double y;
     
-    public DebugData(int x, int y) {
+    public DebugData(double x, double y) {
         this.x = x;
         this.y = y;
     }
     
     public double distance(DebugData other) {
-        return Math.pow(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
+        return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
     }
     
     public double getX(){
@@ -21,7 +21,7 @@ class DebugData {
     }
     
     public double getY(){
-        return this.x;
+        return this.y;
     }
     
     public void setX(double x){
@@ -36,3 +36,13 @@ class DebugData {
         return String.format("(%g, %g)", this.x, this.y);
     }
 }
+
+/*
+Zeile 6: DebugData muss public sein, sonst kann man in DebugMain nicht darauf zugreifen
+
+Zeile 10: int x und int y in DebugData constructor muss ein double sein
+
+Zeile 16: 'distance' Funktion muss die Wurzel von den beiden Summanden nehmen, also Math.sqrt
+
+Zeile 23: getY muss this.y wiedergeben
+*/

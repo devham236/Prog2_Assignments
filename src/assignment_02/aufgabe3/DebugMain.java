@@ -1,4 +1,5 @@
 package assignment_02.aufgabe3;
+import assignment_02.aufgabe3.data.DebugData;
 
 class DebugMain {
     public static void main(String[] args) {
@@ -9,3 +10,8 @@ class DebugMain {
             a.str(), b.str(), a.distance(b)));
     }
 }
+
+/*
+Zeile 2: DebugData class nicht importiert
+Fehlermeldung: Cannot resolve symbol 'DebugData'
+*/

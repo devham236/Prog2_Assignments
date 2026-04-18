@@ -1,6 +1,6 @@
-package assignment_02;
+package assignment_02.conway.gui;
 
-import conway.game.GameOfLife;
+import assignment_02.conway.game.GameOfLife;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
