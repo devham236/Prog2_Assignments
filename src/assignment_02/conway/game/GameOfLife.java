@@ -1,8 +1,8 @@
 package assignment_02.conway.game;
 
 public class GameOfLife {
-    int[][] field;
-    long iter;
+    public int[][] field;
+    public long iter;
 
     public GameOfLife(int x, int y) {
         this.field = new int[x][y];
@@ -70,21 +70,5 @@ public class GameOfLife {
 
     public String toString() {
         return "";
-    }
-
-    public static void main(String[] args) {
-        GameOfLife test = new GameOfLife(15, 15);
-
-        test.field[1][2] = 1;
-        test.field[2][3] = 1;
-        test.field[3][1] = 1;
-        test.field[3][2] = 1;
-        test.field[3][3] = 1;
-
-
-        for (int i = 0; i < 20; i++) {
-            test.printGeneration(test.field);
-            test.calculateNextGeneration();
-        }
     }
 }
