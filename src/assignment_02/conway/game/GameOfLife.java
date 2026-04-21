@@ -69,6 +69,15 @@ public class GameOfLife {
     }
 
     public String toString() {
-        return "";
+        String str = "";
+
+        for (int i = 0; i < field.length; i++) {
+            for (int j = 0; j < field[i].length; j++) {
+                str += field[i][j];
+            }
+            str += "\n";
+        }
+
+        return str;
     }
 }

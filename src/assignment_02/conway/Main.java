@@ -4,7 +4,7 @@ import assignment_02.conway.game.GameOfLife;
 
 public class Main {
     public static void main(String[] args) {
-        GameOfLife test = new GameOfLife(15, 15);
+        GameOfLife test = new GameOfLife(5, 5);
 
         test.field[1][2] = 1;
         test.field[2][3] = 1;
@@ -17,5 +17,7 @@ public class Main {
             test.printGeneration(test.field);
             test.calculateNextGeneration();
         }
+
+        System.out.println(test.toString());
     }
 }
