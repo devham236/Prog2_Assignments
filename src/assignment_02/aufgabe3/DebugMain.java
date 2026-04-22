@@ -1,6 +1,10 @@
 package assignment_02.aufgabe3;
 import assignment_02.aufgabe3.data.DebugData;
 
+/**
+ * test
+ */
+
 class DebugMain {
     public static void main(String[] args) {
         DebugData a = new DebugData(3.4, 5.6);
