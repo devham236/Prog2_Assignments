@@ -12,11 +12,17 @@ public class Main {
 
 
         // Start configuration
-        gameOfLife.getGeneration()[1][2] = CellType.LIVING;
-        gameOfLife.getGeneration()[2][3] = CellType.LIVING;
-        gameOfLife.getGeneration()[3][1] = CellType.LIVING;
-        gameOfLife.getGeneration()[3][2] = CellType.LIVING;
-        gameOfLife.getGeneration()[3][3] = CellType.LIVING;
+        gameOfLife.getGeneration()[0][0] = CellType.LIVING;
+        gameOfLife.getGeneration()[14][0] = CellType.LIVING;
+        gameOfLife.getGeneration()[1][0] = CellType.LIVING;
+        gameOfLife.getGeneration()[3][2] = CellType.DEAD;
+        gameOfLife.getGeneration()[3][3] = CellType.DEAD;
+
+        int[] test1 = {0, 0, 1, 1};
+        int[] test2 = {0, 1, 0, 1};
+        gameOfLife.setup(test1, test2);
+
+        System.out.printf("Living neighbors: %d", gameOfLife.countLivingNeighbors(0, 0));
 
         // Optional graphical interface
         ConwayGUI gui = new ConwayGUI(gameOfLife);
@@ -29,6 +35,7 @@ public class Main {
             System.out.println("-----------------------------------------");
         }
         */
+
     }
     
 }

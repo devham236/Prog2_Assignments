@@ -7,7 +7,13 @@ public class GameOfLife {
     private CellType[][] generation;
     private long iteration;
 
-
+    /**
+     * Constructs a new field for Conway's Game of Life
+     * Modifies the current generation to be a field of given parameter size, where each cell is dead.
+       Also resets the iteration to 0.
+     * @author Hamza Mirza
+     * @param size describes how big the field should be
+     */
     public GameOfLife(int size) {
         this.generation = new CellType[size][size];
         iteration = 0L;
@@ -20,21 +26,48 @@ public class GameOfLife {
         }
     }
 
-    private int countLivingNeighbors(int x, int y) {
+    /**
+     * Counts the living neighbors of given coordinate and those beyond the eadge
+     * Loops through the rows and cols above/under the given coordinate and counts the living neighbors
+       and also checks if living neighbors exist on the other side of given coordinate,
+       when the coordinate itself is on the edge of one side.
+     * @author Hamza Mirza
+     * @param x col coordinate
+     * @param y row coordinate
+     * @return int the count of living neighbors
+     */
+    public int countLivingNeighbors(int x, int y) {
         int result = 0;
+        int rows = generation.length;
+        int cols = generation[0].length;
+
         for (int i = x-1; i <= x+1; i++) {
             for (int j = y-1; j <= y+1; j++) {
                 // skip cell itself
                 if (i == x && j == y) continue;
                 // skip negative indices and indices larger than size
-                if (i < 0 || j < 0 || i >= generation.length || j >= generation[0].length) continue;
+                int neighborX = (i + rows) % rows;
+                int neighborY = (j + cols) % cols;
 
-                result += generation[i][j].getValue();
+                result += generation[neighborX][neighborY].getValue();
             }
         }
         return result;
     }
 
+    public void setup(int[] x, int[] y) {
+        for (int i = 0; i < x.length; i++) {
+            generation[x[i]][y[i]] = CellType.LIVING;
+        }
+    }
+
+    /**
+     * Determines the next Generation of cells, based on the current generation
+     * Loops through each cell in the field and checks whether the dead or living cell should be dead or alive in
+       the next generation, based on conditions provided by the game rules.
+       Also keeps track of the iteration count and increases by one every time function is called.
+     * @author Hamza Mirza
+     */
     public void calculateNextGeneration() {
         iteration++;
         CellType[][] nextGeneration = new CellType[generation.length][generation[0].length];
