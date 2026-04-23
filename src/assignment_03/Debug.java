@@ -10,11 +10,11 @@ public class Debug {
     ops[3] = Operator.ADD;
 
     Expression[] exp = new Expression[ops.length];
-    for (int i = 0; i < ops.length; ++i) {
+    for (int i = 0; i < ops.length; i++) {
       exp[i] = new Expression(i, i + 1, ops[i]);
     }
 
-    for (int i = 0; i < ops.length; ++i) {
+    for (int i = 0; i < ops.length; i++) {
       System.out.println(exp[i].evaluate());
     }
   }

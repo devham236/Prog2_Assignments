@@ -1,19 +1,21 @@
 package assignment_03.conway.game;
 
+import assignment_03.conway.component.CellType;
+
 public class GameOfLife {
 
-    private int[][] generation;
+    private CellType[][] generation;
     private long iteration;
 
 
     public GameOfLife(int size) {
-        this.generation = new int[size][size];
+        this.generation = new CellType[size][size];
         iteration = 0L;
 
         // init of the grid
         for (int i = 0; i < generation.length;i++) {
             for (int j = 0; j < generation[i].length; j++) {
-                generation[i][j] = 0;
+                generation[i][j] = CellType.DEAD;
             } 
         }
     }
@@ -27,7 +29,7 @@ public class GameOfLife {
                 // skip negative indices and indices larger than size
                 if (i < 0 || j < 0 || i >= generation.length || j >= generation[0].length) continue;
 
-                result += generation[i][j];
+                result += generation[i][j].getValue();
             }
         }
         return result;
@@ -35,18 +37,18 @@ public class GameOfLife {
 
     public void calculateNextGeneration() {
         iteration++;
-        int[][] nextGeneration = new int[generation.length][generation[0].length];
+        CellType[][] nextGeneration = new CellType[generation.length][generation[0].length];
 
          for (int i = 0; i < generation.length;i++) {
             for (int j = 0; j < generation[i].length; j++) {
                 int livingNeighbours = countLivingNeighbors(i, j);
 
-                if (generation[i][j] == 0 && livingNeighbours == 3) {
+                if (generation[i][j] == CellType.DEAD && livingNeighbours == 3) {
                     // 3 living neighbours and dead cell
-                    nextGeneration[i][j] = 1;
-                } else if (generation[i][j] == 1 && (livingNeighbours < 2 || livingNeighbours > 3)) {
+                    nextGeneration[i][j] = CellType.LIVING;
+                } else if (generation[i][j] == CellType.LIVING && (livingNeighbours < 2 || livingNeighbours > 3)) {
                     // living cell dies
-                    nextGeneration[i][j] = 0;
+                    nextGeneration[i][j] = CellType.DEAD;
                 } else {
                     // case cell is dead and not exactly 3 living neighbours -> cell dead in next step
                     // case cell lives but has 2 or 3 living neighbours -> cell does not die
@@ -59,7 +61,7 @@ public class GameOfLife {
         generation = nextGeneration;
     }
 
-    public int[][] getGeneration() {
+    public CellType[][] getGeneration() {
         return this.generation;
     }
 

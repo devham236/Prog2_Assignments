@@ -1,7 +1,8 @@
 package assignment_03.conway;
 
-import conway.gui.ConwayGUI;
-import conway.game.GameOfLife;
+import assignment_03.conway.component.CellType;
+import assignment_03.conway.gui.ConwayGUI;
+import assignment_03.conway.game.GameOfLife;
 
 public class Main {
 
@@ -11,11 +12,11 @@ public class Main {
 
 
         // Start configuration
-        gameOfLife.getGeneration()[1][2] = 1;
-        gameOfLife.getGeneration()[2][3] = 1;
-        gameOfLife.getGeneration()[3][1] = 1;
-        gameOfLife.getGeneration()[3][2] = 1;
-        gameOfLife.getGeneration()[3][3] = 1;
+        gameOfLife.getGeneration()[1][2] = CellType.LIVING;
+        gameOfLife.getGeneration()[2][3] = CellType.LIVING;
+        gameOfLife.getGeneration()[3][1] = CellType.LIVING;
+        gameOfLife.getGeneration()[3][2] = CellType.LIVING;
+        gameOfLife.getGeneration()[3][3] = CellType.LIVING;
 
         // Optional graphical interface
         ConwayGUI gui = new ConwayGUI(gameOfLife);

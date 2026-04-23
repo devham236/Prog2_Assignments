@@ -1,5 +1,6 @@
 package assignment_03.conway.gui;
 
+import assignment_03.conway.component.CellType;
 import assignment_03.conway.game.GameOfLife;
 
 import javax.swing.JFrame;
@@ -83,13 +84,13 @@ public class ConwayGUI {
 			protected void paintComponent(Graphics g) {
 				super.paintComponent(g);
 
-				int[][] generation = game.getGeneration();
+				CellType[][] generation = game.getGeneration();
 				int cellWidth = getWidth() / generation.length;
 				int cellHeight = getHeight() / generation[0].length;
 
 				for (int i = 0; i < generation.length; i++) {
 					for (int j = 0; j < generation[i].length; j++) {
-						g.setColor(generation[i][j] == 0 ? Color.WHITE : Color.BLACK);
+						g.setColor(generation[i][j].getColor());
 
 						g.fillRect(i * cellWidth, j * cellHeight, cellWidth, cellHeight);
 					}

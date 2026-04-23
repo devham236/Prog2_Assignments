@@ -1,7 +1,7 @@
 package assignment_03;
 
-import conway.component.CellType;
-import conway.game.GameOfLife;
+import assignment_03.conway.component.CellType;
+import assignment_03.conway.game.GameOfLife;
 
 
 import javax.swing.JFrame;
