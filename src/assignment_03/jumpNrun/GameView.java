@@ -1,9 +1,20 @@
 package assignment_03.jumpNrun;
 
+/**
+ * The class manages the game world, including the level layout and
+ * the game loop logic. It handles the placement of the games objects
+ * and controls the interaction between the NPC and the environment.
+ * @author Hamza Mirza
+ */
 public class GameView {
     GameObject[][] view = new GameObject[20][3];
     NPC npc = new NPC(0, false);
 
+    /**
+     * Creates a new instance of the Gameview class and initializes the games layout.
+     * The layout includes, the NPC character, airobstacles, the ground and the goal of the game.
+     * @author Hamza Mirza
+     */
     public GameView(){
         view[0][2] = GameObject.GROUND;
         view[1][2] = GameObject.GROUND;
@@ -31,6 +42,13 @@ public class GameView {
         }
     }
 
+    /**
+     * Generates a string representation of the current game state.
+     * This method renders the 2D grid as a multi-line string. It
+     * places the player character 'P' based on the NPC's current coordinates
+     * and crouching state.
+     * @return string which gets printed to console in the main function
+     */
     public String str(){
         String output = "";
 
@@ -57,6 +75,12 @@ public class GameView {
         return output;
     }
 
+    /**
+     * Starts and manages the main game loop.
+     * The loop continues until the NPC reaches the goal, falls into lava,
+     * or moves out of bounds.
+     * @author Hamza Mirza
+     */
     public void play(){
         while(true){
             System.out.println(this.str());
