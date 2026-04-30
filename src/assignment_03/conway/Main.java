@@ -12,11 +12,6 @@ public class Main {
 
 
         // Start configuration
-        gameOfLife.getGeneration()[0][0] = CellType.LIVING;
-        gameOfLife.getGeneration()[14][0] = CellType.LIVING;
-        gameOfLife.getGeneration()[1][0] = CellType.LIVING;
-        gameOfLife.getGeneration()[3][2] = CellType.DEAD;
-        gameOfLife.getGeneration()[3][3] = CellType.DEAD;
 
         int[] test1 = {0, 0, 1, 1};
         int[] test2 = {0, 1, 0, 1};
