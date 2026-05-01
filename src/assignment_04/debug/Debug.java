@@ -1,6 +1,6 @@
 package assignment_04.debug;
 
-import debug.model.*;
+import assignment_04.debug.model.*;
 
 public class Debug {
   public static void main(String[] args) {

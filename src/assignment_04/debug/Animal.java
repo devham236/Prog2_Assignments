@@ -1,18 +1,18 @@
 package assignment_04.debug;
 
 public class Animal {
-  private String name_;
-  private int legs_;
-  private int arms_;
+  protected String name_;
+  protected int legs_;
+  protected int arms_;
 
 
-  Animal(String name, int legs, int arms) {
+  public Animal(String name, int legs, int arms) {
     this.name_ = name;
     this.legs_ = legs;
     this.arms_ = arms;
   }
 
-  Animal(String name) {
+  public Animal(String name) {
     this(name, 0, 0);
   }
 
@@ -34,3 +34,9 @@ public class Animal {
     return String.format("%s is an animal with %d legs and %d arms.", this.getName(), this.getLegs(), this.getArms());
   }
 }
+
+/*
+Zeile 4-6: Variablen auf protected gestellt anstatt private, damit andere Klassen Zugriff haben
+
+Zeile 9 und 15: Konstruktoren auf public gestellt damit Subklassen Zugriff haben.
+ */

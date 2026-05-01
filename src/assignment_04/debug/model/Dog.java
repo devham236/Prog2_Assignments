@@ -1,6 +1,8 @@
 package assignment_04.debug.model;
 
-public class Dog extends Animal{
+import assignment_04.debug.Animal;
+
+public class Dog extends Animal {
     
   public Dog(String name) {
     super(name);
@@ -14,12 +16,12 @@ public class Dog extends Animal{
 
   @Override
   public int getArms() {
-    return 4;
+    return 2;
   }
 
   @Override
   public int getLegs() {
-    return 4;
+    return 2;
   }
 
   @Override
@@ -27,3 +29,9 @@ public class Dog extends Animal{
     return String.format("%s is a dog with %d legs and %d arms.", this.getName(), this.getArms(), this.getLegs());
   }
 }
+
+/*
+Zeile 3: Animal Klasse importiert, damit Dog Klasse Konstruktor verwenden kann
+
+Zeile 18 und 23: Funktionen geben 4 wieder, ein Hund hat aber nicht 4 Beine und 4 Arme.
+ */
