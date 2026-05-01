@@ -7,8 +7,8 @@ import assignment_04.conway.component.CellType;
  */
 public class GameOfLife {
 
-    private CellType[][] generation;
-    private long iteration;
+    protected CellType[][] generation;
+    protected long iteration;
 
     /**
      * Creates a new game with size N X N and empty configuration
@@ -33,7 +33,7 @@ public class GameOfLife {
      * @param y the y-coordinate
      * @return number of living nbeighbours excluding the cell at (x,y)
      */
-    private int countLivingNeighbors(int x, int y) {
+    protected int countLivingNeighbors(int x, int y) {
         int result = 0;
         for (int i = x-1; i <= x+1; i++) {
             for (int j = y-1; j <= y+1; j++) {
