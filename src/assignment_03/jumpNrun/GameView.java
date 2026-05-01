@@ -103,23 +103,17 @@ public class GameView {
             GameObject nextAir = (npc_location + 1 < 20) ? view[npc_location + 1][0] : null;
             GameObject nextGround = (npc_location + 1 < 20) ? view[npc_location + 1][2] : null;
 
-            // 3. Logik-Kette (Reihenfolge ist hier entscheidend!)
-
             if (nextAir == GameObject.AIROBSTACLE) {
                 npc.crouch();
                 npc.walkRight();
             }
             else if (nextGround == GameObject.LAVA) {
-                // Wenn Lava kommt, MUSS er dashen, um nicht reinzufallen.
-                // Falls er noch geduckt war, sollte er vorher aufstehen.
                 if (npc.isCrouching) {
                     npc.StandUp();
                 }
                 npc.dashRight();
-                // dashRight() bringt ihn von x=7 direkt auf x=9 (über die Lava bei x=8 drüber)
             }
             else {
-                // Wenn er kriecht, aber kein Hindernis mehr über ihm ist, sollte er aufstehen
                 if (npc.isCrouching && (nextAir != GameObject.AIROBSTACLE)) {
                     npc.StandUp();
                 }
