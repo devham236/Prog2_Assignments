@@ -26,7 +26,7 @@ public class Dog extends Animal {
 
   @Override
   public String toString() {
-    return String.format("%s is a dog with %d legs and %d arms.", this.getName(), this.getArms(), this.getLegs());
+    return String.format("%s is a dog with %d legs and %d arms.", this.getName(), this.getLegs(), this.getArms());
   }
 }
 
@@ -34,4 +34,6 @@ public class Dog extends Animal {
 Zeile 3: Animal Klasse importiert, damit Dog Klasse Konstruktor verwenden kann
 
 Zeile 18 und 23: Funktionen geben 4 wieder, ein Hund hat aber nicht 4 Beine und 4 Arme.
+
+Zeile 29: Es muss erstmal getLegs und dann getArms Funktion als Argument für Platzhalter im String angegeben werden.
  */
