@@ -16,12 +16,12 @@ public class Dog extends Animal {
 
   @Override
   public int getArms() {
-    return 2;
+    return 0;
   }
 
   @Override
   public int getLegs() {
-    return 2;
+    return 4;
   }
 
   @Override
@@ -33,7 +33,7 @@ public class Dog extends Animal {
 /*
 Zeile 3: Animal Klasse importiert, damit Dog Klasse Konstruktor verwenden kann
 
-Zeile 18 und 23: Funktionen geben 4 wieder, ein Hund hat aber nicht 4 Beine und 4 Arme.
+Zeile 18 und 23: Funktionen geben 4 wieder, ein Hund hat aber nicht 4 Beine und 4 Arme, nur 4 Beine.
 
 Zeile 29: Es muss erstmal getLegs und dann getArms Funktion als Argument für Platzhalter im String angegeben werden.
  */
