@@ -1,6 +1,6 @@
 package assignment_05.debug;
 
-import debug.model.*;
+import assignment_05.debug.model.*;
 
 
 public class Debug {

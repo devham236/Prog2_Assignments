@@ -12,6 +12,21 @@ public class SortedIntBinTreeNode extends IntBinTreeNode {
     }
   }
 
+  @Override
+  public boolean contains(int i) {
+    if (i == this.content_) {
+      return true;
+    }
+
+    if (i < this.content_) {
+      return this.left_ != null && this.left_.contains(i);
+    }
+
+    else {
+      return this.right_ != null && this.right_.contains(i);
+    }
+  }
+
   /**
    * Inserts integer into the sorted tree.
    * Smaller Integers will be placed into the left subtree, larger ones into
@@ -21,12 +36,12 @@ public class SortedIntBinTreeNode extends IntBinTreeNode {
    */
   @Override
   public void insert(int i) {
-    if (i > super.content_) {
+    if (i < super.content_) {
       if (super.left_ == null) 
         super.left_ = new SortedIntBinTreeNode(i, null, null);
       else
         super.left_.insert(i);
-    } else if (i < super.content_) {
+    } else if (i > super.content_) {
       if (super.right_ == null) 
         super.right_ = new SortedIntBinTreeNode(i, null, null);
       else
@@ -34,3 +49,9 @@ public class SortedIntBinTreeNode extends IntBinTreeNode {
     }
   }
 }
+
+/*
+Zeile 24 und 29: Größere Werte müssen nach rechts und kleinere Werte nach links, hier ist es umgekehrt
+
+Zeile 15-28: Methode contains von IntBinTreeNode fehlt
+ */

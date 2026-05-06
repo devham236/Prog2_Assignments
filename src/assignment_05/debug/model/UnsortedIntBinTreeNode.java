@@ -5,7 +5,11 @@ import java.util.Random;
 //Inserts randomly left or right. Needs to search through both subtrees, as
 //there is no way of knowing where the node containing i might be.
 public class UnsortedIntBinTreeNode extends IntBinTreeNode {
-  private static Random rand;
+  private static Random rand = new Random();
+
+  public UnsortedIntBinTreeNode(int content, SortedIntBinTreeNode left, SortedIntBinTreeNode right){
+    super(content, left, right);
+  }
 
   /**
    * Randomly inserts to left or right.
@@ -16,15 +20,15 @@ public class UnsortedIntBinTreeNode extends IntBinTreeNode {
   @Override
   public void insert(int i) {
     if (UnsortedIntBinTreeNode.rand.nextBoolean()) {
-      if (super.left_ == null) 
-        super.left_ = new UnsortedIntBinTreeNode(i, null, null);
+      if (left_ == null) 
+        left_ = new UnsortedIntBinTreeNode(i, null, null);
       else
-        super.left_.insert(i);
+        left_.insert(i);
     } else {
-      if (super.right_ == null) 
-        super.right_ = new UnsortedIntBinTreeNode(i, null, null);
+      if (right_ == null) 
+        right_ = new UnsortedIntBinTreeNode(i, null, null);
       else
-        super.right_.insert(i);
+        right_.insert(i);
     }
   }
 
@@ -37,6 +41,14 @@ public class UnsortedIntBinTreeNode extends IntBinTreeNode {
    */
   @Override
   public boolean contains(int i) {
-    return super.content_ == i || (super.left_ != null && super.left_.contains(i)) || (super.right_ != null && super.right_.contains(i));
+    return content_ == i || (left_ != null && left_.contains(i)) || (right_ != null && right_.contains(i));
   }
 }
+
+/*
+Zeile 8: Random Objekt wird nicht mit new Random() initialisiert
+
+Zeile 10-12: Konstruktor mit super() Aufruf fehlt, weil Basisklasse keinen Standardkonstruktor ohne Parameter hat.
+
+Zeile 23-31 und Zeile 44: Aufruf von den Feldern left, right mit super ist unnötig.
+ */
